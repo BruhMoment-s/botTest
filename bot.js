@@ -8,7 +8,8 @@ client.on('ready', () => {
 client.on('message', message => {
     if (message.content.substring(0,8) === '_update ') {
         let embedContent1 = message.content.substring(8,message.length);
-        let embedContent = embedContent1.replace("|","\n");
+       
+        let embedContent = embedContent2.replace("|","\n");
         const embed = {
             "title": "Xedved update",
             "color": 8359053,
@@ -29,7 +30,7 @@ client.on('message', message => {
               },
               {
                 "name": "_ _",
-                "value": "```" + embedContent + "```"
+                "value": "```\n" + embedContent + "```"
               }
             ]
           };
