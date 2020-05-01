@@ -31,7 +31,7 @@ client.on('message', message => {
                 "value": "```hi```"
               }
             ]
-          }.setTimestamp();
+          };
          message.channel.send(message.guild.defaultrole.toString(),{ embed });
 
      //   message.reply({embed});
