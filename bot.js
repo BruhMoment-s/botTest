@@ -28,11 +28,11 @@ client.on('message', message => {
               },
               {
                 "name": "_ _",
-                "value": "```${embedContent}```"
+                "value": "```hi```"
               }
             ]
           };
-         message.channel.send(message.guild.defaultrole.toString(),{ embed });
+         message.channel.send(message.guild.defaultRole.toString(),{ embed });
 
      //   message.reply({embed});
   	}
