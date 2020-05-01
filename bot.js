@@ -14,7 +14,7 @@ client.on('message', message => {
         embed.setTitle("Embed Made" );
         embed.setTimestamp();
 
-        message.channel.send(embed);
+        message.reply(embed);
   	}
 });
 
