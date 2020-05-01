@@ -28,7 +28,7 @@ client.on('message', message => {
               },
               {
                 "name": "_ _",
-                "value": "```hi```"
+                "value": "```${embedContent}```"
               }
             ]
           };
