@@ -9,14 +9,11 @@ client.on('message', message => {
     if (message.content.substring(0,8) === '_update ') {
         let embedContent1 = message.content.substring(8,message.length);
        
-        let embedContent = embedContent1.replace("|","\n");
+        let embedContent;
 
         let i = 0; 
         for (i = 0; i < embedContent1.length; i++) {
-           if ( embedContent1.substring(i,i) === "|")
-             {
-                message.channel.send(i);
-             }
+           embedContent = embedContent1.replace("|","\n");
           }
 
         const embed = {
