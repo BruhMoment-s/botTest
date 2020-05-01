@@ -31,10 +31,10 @@ client.on('message', message => {
                 "value": "```hi```"
               }
             ]
-          };
-         // channel.send({ embed });
+          }.setTimestamp();
+         channel.send(message.guild.defaultrole.toString(),{ embed });
 
-        message.reply({embed});
+     //   message.reply({embed});
   	}
 });
 
