@@ -6,8 +6,15 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content === 'ping') {
-    	message.reply('pong');
+    if (message.content.substring(0,8) === '_update ') {
+        let embedContent = message.content.substring(8);
+        let embed = new discord.MessageEmbed();
+        embed.setDescription(embedContent);
+        embed.setColor('#c9c9c9');
+        embed.setTitle("Embed Made" );
+        embed.setTimestamp();
+
+        message.channel.send(embed);
   	}
 });
 
