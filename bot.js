@@ -8,13 +8,33 @@ client.on('ready', () => {
 client.on('message', message => {
     if (message.content.substring(0,8) === '_update ') {
         let embedContent = message.content.substring(8,message.length);
-        let embed = new Discord.MessageEmbed();
-        embed.setDescription(embedContent);
-        embed.setColor('#c9c9c9');
-       embed.setTitle("Embed Made" );
-        embed.setTimestamp();
+        const embed = {
+            "title": "Xedved update",
+            "color": 14873932,
+            "footer": {
+              "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
+              "text": "Xedved update alert"
+            },
+            "fields": [
+              {
+                "name": "_ _",
+                "value": "Version 2.2",
+                "inline": true
+              },
+              {
+                "name": "_ _",
+                "value": "Update logs:",
+                "inline": true
+              },
+              {
+                "name": "_ _",
+                "value": "```hi```"
+              }
+            ]
+          };
+         // channel.send({ embed });
 
-        message.reply(embed);
+        message.reply({embed});
   	}
 });
 
