@@ -10,7 +10,7 @@ client.on('message', message => {
         let embedContent = message.content.substring(8,message.length);
         const embed = {
             "title": "Xedved update",
-            "color": 14873932,
+            "color": 8359053,
             "footer": {
               "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
               "text": "Xedved update alert"
@@ -32,7 +32,7 @@ client.on('message', message => {
               }
             ]
           }.setTimestamp();
-         channel.send(message.guild.defaultrole.toString(),{ embed });
+         message.channel.send(message.guild.defaultrole.toString(),{ embed });
 
      //   message.reply({embed});
   	}
