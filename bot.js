@@ -13,7 +13,7 @@ client.on('message', message => {
 
         let i = 0; 
         for (i = 0; i < embedContent1.length; i++) {
-           embedContent = embedContent1.replace("|","\n");
+           embedContent1 = embedContent1.replace("|","\n");
           }
 
         const embed = {
@@ -37,13 +37,15 @@ client.on('message', message => {
               },
               {
                 "name": "_ _",
-                "value": "```"+ "\n" + embedContent + "```"
+                "value": "```"+ "\n" + embedContent1 + "```"
               }
             ]
           };
           
          message.channel.send(message.guild.defaultRole.toString(),{ embed });
         
+
+         
      //   message.reply({embed});
   	}
 });
