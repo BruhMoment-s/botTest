@@ -7,7 +7,9 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.content.substring(0,8) === '_update ') {
-      if (message.member.id === 409301313646755840)
+      const userID = "409301313646755840"
+      
+      if (!message.sender === userID)
       {
         let embedContent1 = message.content.substring(8,message.length);
        embedContent1 = "- " + embedContent1;
@@ -17,6 +19,9 @@ client.on('message', message => {
         for (i = 0; i < embedContent1.length; i++) {
            embedContent1 = embedContent1.replace("|","\n- ");
           }
+      
+
+
 
         const embed = {
             "title": "Xedved update",
