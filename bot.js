@@ -13,7 +13,7 @@ client.on('message', message => {
 
         let i = 0; 
         for (i = 0; i < embedContent1.length; i++) {
-           embedContent1 = embedContent1.replace("|","\n");
+           embedContent1 = embedContent1.replace("|","\n- ");
           }
 
         const embed = {
