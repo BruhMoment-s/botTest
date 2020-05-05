@@ -7,8 +7,10 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.content.substring(0,8) === '_update ') {
+      if (message.member.id === 409301313646755840)
+      {
         let embedContent1 = message.content.substring(8,message.length);
-       
+       embedContent1 = "- " + embedContent1;
         let embedContent;
 
         let i = 0; 
@@ -44,7 +46,7 @@ client.on('message', message => {
           
          message.channel.send(message.guild.defaultRole.toString(),{ embed });
         
-
+        }
          
      //   message.reply({embed});
   	}
