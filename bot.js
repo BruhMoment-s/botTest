@@ -53,7 +53,31 @@ client.on('message', message => {
         }
          
      //   message.reply({embed});
-  	}
+    }
+    if (message.content.substring(0,9) === 'download') {
+      let html = "<p>An <a href='http://example.com/'><b>example</b></a> link.</p>";
+      let doc = Jsoup.parse(html); 
+      let text = doc.body().text(); // "An example link"
+
+
+
+      const embed = {
+        "title": "Xedved download",
+        "description": "Here is [Xedved](${text.ToString()}) have fun exploiting!", 
+        "color": 8359053,
+        "timestamp": new Date(),
+        
+        "footer": {
+          "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
+          "text": "Xedved bot alert"
+        },
+       
+      };
+
+
+    }
+
+
 });
 
 // THIS  MUST  BE  THIS  WAY
