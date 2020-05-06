@@ -61,7 +61,7 @@ client.on('message', message => {
 
 
 
-      const embed = {
+      const embed2 = {
         "title": "Xedved download",
         "description": "Here is [Xedved](${text.ToString()}) have fun exploiting!", 
         "color": 8359053,
@@ -74,7 +74,7 @@ client.on('message', message => {
        
       };
      
-      message.author.send( { embed });
+      message.author.send( { embed2 });
 
     }
 
