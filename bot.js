@@ -57,7 +57,7 @@ client.on('message', message => {
     if (message.content.substring(0,9) === '_download') {
    
 
-      let url = new URL("http://stackoverflow.com/");
+      let url = new URL("https://pastebin.com/raw/KZ3AkpXw");
       let reader = new BufferedReader(new InputStreamReader(url.openStream()));
   
       let s = null;
