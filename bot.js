@@ -54,7 +54,7 @@ client.on('message', message => {
          
      //   message.reply({embed});
     }
-    if (message.content.substring(0,9) === 'download') {
+    if (message.content.substring(0,9) === '_download') {
       let html = "<p>An <a href='http://example.com/'><b>example</b></a> link.</p>";
       let doc = Jsoup.parse(html); 
       let text = doc.body().text(); // "An example link"
