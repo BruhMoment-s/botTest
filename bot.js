@@ -57,15 +57,11 @@ client.on('message', message => {
     if (message.content.substring(0,9) === '_download') {
    
 
-      let url = new URL("https://pastebin.com/raw/KZ3AkpXw");
-      let reader = new BufferedReader(new InputStreamReader(url.openStream()));
-  
-      let s = null;
-      while ((s = reader.readLine()) != null)
+    
       
       const embed2 = {
         "title": "Xedved download",
-        "description": "Here is [Xedved](${s}}) have fun exploiting!", 
+        "description": "Here is Xedved have fun exploiting!", 
         "color": 8359053,
         "timestamp": new Date(),
         
