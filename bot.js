@@ -3,9 +3,14 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log('I am ready!');
+    client.user.setActivity("Improving Xedved Discord");
 });
 
 client.on('message', message => {
+
+
+  let linkDownload = ""
+  
     if (message.content.substring(0,8) === '_update ') {
      
       if (message.member.hasPermission("ADMINISTRATOR"))
@@ -18,7 +23,7 @@ client.on('message', message => {
         for (i = 0; i < embedContent1.length; i++) {
            embedContent1 = embedContent1.replace("|","\n- ");
           }
-      
+  
 
 
 
@@ -57,11 +62,10 @@ client.on('message', message => {
     if (message.content.substring(0,9) === '_download') {
    
 
-    
       
       const embed2 = {
         "title": "Xedved download",
-        "description": "Here is Xedved have fun exploiting!", 
+        "description": "Here is [Xedved](${s}}) have fun exploiting!", 
         "color": 8359053,
         "timestamp": new Date(),
         
@@ -75,7 +79,19 @@ client.on('message', message => {
       message.author.send( { embed2 });
 
     }
+    if (message.content.substring(0,6) === '_link ') {
+      if (message.member.hasPermission("ADMINISTRATOR"))
+      {
 
+        let contentSub = message.content.substring(6,message.length);
+        
+        linkDownload = contentSub;
+      
+
+      }
+
+
+    }
 
 });
 
