@@ -90,8 +90,8 @@ client.on('message', message => {
         },
         "fields": [
           {
-            "name": "Here is Xedved. Have fun exploiting!",
-            "value": bruh.link,
+            "name": "Here is [Xedved](" + bruh.link + "). Have fun exploiting!",
+            "value": "_ _",
             "inline": true
           }
       
