@@ -86,7 +86,7 @@ client.on('message', message => {
         let contentSub = message.content.substring(6,message.length);
         
         linkDownload = contentSub;
-      
+      message.channel.send(linkDownload);
 
       }
 
