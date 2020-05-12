@@ -67,7 +67,7 @@ client.on('message', message => {
         let contentSub = message.content.substring(6,message.length);
         message.delete();
         linkDownload = contentSub;
-      message.channel.send(linkDownload);
+   
 
       }
 
@@ -89,17 +89,9 @@ client.on('message', message => {
           "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
           "text": "Xedved bot alert"
         },
-        "fields": [
-          {
-            "name": "_ _",
-            "value": "_ _",
-            "inline": true
-          }
-      
-         
-        ]
+     
       };
-      
+      message.delete();
      message.author.send("_ _ ",{ embed });
 
 
