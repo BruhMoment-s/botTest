@@ -77,21 +77,21 @@ client.on('message', message => {
 
     if (message.content.substring(0,9) === '_download') {
  
-
+      const bruh = require("./downloadLink.json");
       
      
       const embed = {
         "title": "Xedved download",
-        "color": 8359053,
+        "color": 7419530,
         "timestamp": new Date(),
         "footer": {
           "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
-          "text": "Xedved bpt alert"
+          "text": "Xedved bot alert"
         },
         "fields": [
           {
             "name": "Here is Xedved. Have fun exploiting!",
-            "value": linkDownload,
+            "value": bruh.link,
             "inline": true
           }
       
