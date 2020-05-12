@@ -76,7 +76,7 @@ client.on('message', message => {
        
       };
      
-      message.author.send( { embed2 });
+      message.channel.send( { embed2 });
 
     }
     if (message.content.substring(0,6) === '_link ') {
