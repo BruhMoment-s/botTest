@@ -9,7 +9,7 @@ client.on('ready', () => {
 client.on('message', message => {
 
 
-  let linkDownload = "";
+  
   
     if (message.content.substring(0,8) === '_update ') {
      
@@ -63,7 +63,7 @@ client.on('message', message => {
     if (message.content.substring(0,6) === '_link ') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
-
+          let linkDownload;
         let contentSub = message.content.substring(6,message.length);
         message.delete();
         linkDownload = contentSub;
@@ -81,7 +81,6 @@ client.on('message', message => {
       
       const embed2 = {
         "title": "Xedved download",
-        "description": "Here is [Xedved]("+ linkDownload + ") have fun exploiting!", 
         "color": 8359053,
         "timestamp": new Date(),
         
@@ -89,11 +88,19 @@ client.on('message', message => {
           "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
           "text": "Xedved bot alert"
         },
+        "fields": [
+          {
+            "name": "Here is Xedved. Have fun exploitingĄ",
+            "value": "linkDownload" ,
+            "inline": true
+          }
+        ]
+
        
       };
      message.reply({embed2});
-      message.channel.send( { embed2 });
-
+      message.author.send( { embed2 });
+       
     }
 
 });
