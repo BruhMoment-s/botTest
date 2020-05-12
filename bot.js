@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
 
-
+  let linkDownload;
   
   
     if (message.content.substring(0,8) === '_update ') {
@@ -63,7 +63,7 @@ client.on('message', message => {
     if (message.content.substring(0,6) === '_link ') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
-          let linkDownload;
+        
         let contentSub = message.content.substring(6,message.length);
         message.delete();
         linkDownload = contentSub;
@@ -91,7 +91,7 @@ client.on('message', message => {
         "fields": [
           {
             "name": "Here is Xedved. Have fun exploiting!",
-            "value": "Version 2.2",
+            "value": linkDownload,
             "inline": true
           }
       
@@ -99,7 +99,7 @@ client.on('message', message => {
         ]
       };
       
-     message.channel.send("_ _ ",{ embed });
+     message.author.send("_ _ ",{ embed });
 
 
        
