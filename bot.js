@@ -82,6 +82,7 @@ client.on('message', message => {
      
       const embed = {
         "title": "Xedved download",
+        "description": "Here is [Xedved]("+ bruh.link + ") have fun exploiting!",
         "color": 7419530,
         "timestamp": new Date(),
         "footer": {
@@ -90,7 +91,7 @@ client.on('message', message => {
         },
         "fields": [
           {
-            "name": "Here is [Xedved](" + bruh.link + "). Have fun exploiting!",
+            "name": "_ _",
             "value": "_ _",
             "inline": true
           }
