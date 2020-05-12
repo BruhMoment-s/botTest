@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log('I am ready!');
-    client.user.setActivity("Improving Xedved Discord");
+
 });
 
 client.on('message', message => {
@@ -65,7 +65,7 @@ client.on('message', message => {
       
       const embed2 = {
         "title": "Xedved download",
-        "description": "Here is [Xedved](${s}}) have fun exploiting!", 
+        "description": "Here is [Xedved](${linkDownload}}) have fun exploiting!", 
         "color": 8359053,
         "timestamp": new Date(),
         
