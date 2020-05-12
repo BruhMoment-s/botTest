@@ -79,27 +79,29 @@ client.on('message', message => {
  
 
       
-      const embed2 = {
+     
+      const embed = {
         "title": "Xedved download",
         "color": 8359053,
         "timestamp": new Date(),
-        
         "footer": {
           "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
-          "text": "Xedved bot alert"
+          "text": "Xedved bpt alert"
         },
         "fields": [
           {
-            "name": "Here is Xedved. Have fun exploitingĄ",
-            "value": "linkDownload" ,
+            "name": "Here is Xedved. Have fun exploiting!",
+            "value": "Version 2.2",
             "inline": true
           }
+      
+         
         ]
-
-       
       };
-     message.reply({embed2});
-      message.author.send( { embed2 });
+      
+     message.channel.send("_ _ ",{ embed });
+
+
        
     }
 
