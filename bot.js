@@ -92,7 +92,7 @@ client.on('message', message => {
      
       };
       message.delete();
-     message.author.send("_ _ ",{ embed });
+     message.author.send("",{ embed });
 
 
        
