@@ -65,7 +65,7 @@ client.on('message', message => {
       
       const embed2 = {
         "title": "Xedved download",
-        "description": "Here is [Xedved](${linkDownload}}) have fun exploiting!", 
+        "description": "Here is [Xedved](" + linkDownload + ") have fun exploiting!", 
         "color": 8359053,
         "timestamp": new Date(),
         
@@ -84,7 +84,7 @@ client.on('message', message => {
       {
 
         let contentSub = message.content.substring(6,message.length);
-        
+        message.delete();
         linkDownload = contentSub;
       message.channel.send(linkDownload);
 
