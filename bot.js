@@ -76,7 +76,7 @@ client.on('message', message => {
 
 
     if (message.content.substring(0,9) === '_download') {
-    message.channel.send("a");
+ 
 
       
       const embed2 = {
@@ -91,7 +91,7 @@ client.on('message', message => {
         },
        
       };
-     
+     message.reply({embed2});
       message.channel.send( { embed2 });
 
     }
