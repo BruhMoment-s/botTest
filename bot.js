@@ -65,7 +65,7 @@ client.on('message', message => {
       
       const embed2 = {
         "title": "Xedved download",
-        "description": "Here is [Xedved](" + linkDownload + ") have fun exploiting!", 
+        "description": "Here is [Xedved](https://pastebin.com/raw/KZ3AkpXw) have fun exploiting!", 
         "color": 8359053,
         "timestamp": new Date(),
         
