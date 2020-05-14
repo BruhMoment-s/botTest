@@ -25,7 +25,7 @@ client.on('message', message => {
           }
   
 
-
+          const bruh = require("./downloadLink.json");
 
         const embed = {
             "title": "Xedved update",
