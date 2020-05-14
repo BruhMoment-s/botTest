@@ -38,7 +38,7 @@ client.on('message', message => {
             "fields": [
               {
                 "name": "_ _",
-                "value": "Version " + bruh.update,
+                "value": "Version " + bruh.version,
                 "inline": true
               },
               {
