@@ -103,9 +103,10 @@ client.on('message', message => {
 
 
     }
-    if (message.content.substring(0,7) === '_clear ') {
+    if (message.content.substring(0,6) === '_clear') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
+        message.channel.send("trying to clear");
         const args = message.content.split(' ').slice(1); // All arguments behind the command name with the prefix
         const amount = args.join(' '); // Amount of messages which should be deleted
         
