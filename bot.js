@@ -109,6 +109,15 @@ client.on('message', message => {
         let args = message.content.slice(1).split(' ');
         let command = args.shift().toLowerCase();
        message.channel.send("Clearing: " + args[0]);  
+if (args[0] > 100) {
+  message.channel.send("You cant delete more than 100 messages!");
+}
+
+       
+await msg.channel.messages.fetch({ limit: amount }).then(messages => { // Fetches the messages
+  msg.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+)});
+
       }
 
 
