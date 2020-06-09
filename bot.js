@@ -130,7 +130,7 @@ client.on('message', message => {
 
     if (lockdown === true) 
     {
-      message.channel.send("Message should be deleted: " +  message);
+    //  message.channel.send("Message should be deleted: " +  message);
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
   
