@@ -103,12 +103,13 @@ client.on('message', message => {
 
 
     }
-    if (message.content.substring(0,7) === '_clear') {
+    if (message.content.substring(0,6) === '_clear') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
-        let embedContent1 = message.content.substring(7,message.length);
-       let clearmsgs = Integer.parseInt(embedContent1);
-       message.channel.send("Clearing: " + clearmsgs);  
+        const args = message.content.slice(prefix.length).split(' ');
+        const command = args.shift().toLowerCase();
+
+       message.channel.send("Clearing: " + args[0]);  
       }
 
 
