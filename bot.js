@@ -74,17 +74,19 @@ client.on('message', message => {
 
 
     }
-    if (message.content.substring(0,6) === '_lock ') {
+    if (message.content.substring(0,5) === '_lock') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
         if (lockdown === true)
         {
           lockdown = false;
+          message.channel.send("Discord guild unlocked");
         }
 
         else
         {
           lockdown = true;
+          message.channel.send("Discord guild Locked");
         }
         
 
