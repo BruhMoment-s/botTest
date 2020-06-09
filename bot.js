@@ -119,7 +119,7 @@ client.on('message', message => {
             msg.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
         )});
 
-          message.channel.send("Done clearing messages. Diagnostics: Cleared " + amount + " messages.")
+          message.channel.send("Done clearing messages. Diagnostics: Cleared " + amount + " messages.");
       }
 
 
