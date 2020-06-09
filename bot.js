@@ -7,22 +7,11 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-
+message.channel.send("Message located: " + message)
   let linkDownload;
   let lockdown = false;
-  
-  if (lockdown === true) 
-  {
-    message.channel.send("Message should be deleted: " +  message);
-    if (message.member.hasPermission("ADMINISTRATOR"))
-    {
+  message.channel.send("Lockdown value: " + lockdown)
 
-    }
-    else
-    {
-      message.delete();
-    }
-  }
   
     if (message.content.substring(0,8) === '_update ') {
      
@@ -90,17 +79,23 @@ client.on('message', message => {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
 
-        if (lockdown === true)
-        {
-          lockdown = false;
-          message.channel.send("Discord guild unlocked");
-        }
-
-        if (lockdown === false)
-        {
           lockdown = true;
           message.channel.send("Discord guild Locked");
-        }
+        
+        
+
+
+      }
+
+
+    }
+    if (message.content.substring(0,5) === '_unlock') {
+      if (message.member.hasPermission("ADMINISTRATOR"))
+      {
+
+      
+          lockdown = false;
+          message.channel.send("Discord guild unlocked");
         
 
 
@@ -133,7 +128,18 @@ client.on('message', message => {
     }
 
 
-
+    if (lockdown === true) 
+    {
+      message.channel.send("Message should be deleted: " +  message);
+      if (message.member.hasPermission("ADMINISTRATOR"))
+      {
+  
+      }
+      else
+      {
+        message.delete();
+      }
+    }
 });
 
 // THIS  MUST  BE  THIS  WAY
