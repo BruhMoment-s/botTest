@@ -103,36 +103,6 @@ client.on('message', message => {
 
 
     }
-    if (message.content.substring(0,6) === '_clear') {
-      if (message.member.hasPermission("ADMINISTRATOR"))
-      {
-
-        let args = message.content.split(' ').slice(1); // All arguments behind the command name with the prefix
-        let amount = args.join(' '); // Amount of messages which should be deleted
-   
-    
-          if (args[0] > 100) {
-            message.channel.send("[!] You cant delete more than 100 messages!");
-          }
-          if (args[0] < 1) {
-            message.channel.send("[!] Please specify a correct amount.");
-          }
-          if (!args)
-          { 
-            message.channel.send("[!] Please specify a valid integer");
-          }
-          if (isNaN(args))
-          {
-            message.channel.send("[!] Please specify a valid integer");
-          }
-          message.channel.send("Clearing: " + args[0]);  
-          
-           cleareance(message,amount);
-      }
-
-
-    }
-
     if (message.content.substring(0,9) === '_download') {
  
       const bruh = require("./downloadLink.json");
@@ -176,10 +146,3 @@ client.on('message', message => {
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
 
-
-void cleareance(message,amount)
-{
-  await   message.channel.messages.fetch({ limit: amount }).then(messagess => { // Fetches the messages
-    messagess.channel.bulkDelete(messagess // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-)});
-}
