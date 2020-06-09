@@ -86,9 +86,10 @@ client.on('message', message => {
 
 
     }
-    if (message.content.substring(0,5) === '_lock') {
+    if (message.content.substring(0,6) === '_lock ') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
+        message.channel.send(args[0]);
         if (lockdown === true)
         {
           lockdown = false;
