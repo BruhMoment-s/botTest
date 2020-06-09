@@ -9,6 +9,7 @@ client.on('ready', () => {
 client.on('message', message => {
 
   let linkDownload;
+  let lockdown = false;
   
   
     if (message.content.substring(0,8) === '_update ') {
@@ -73,7 +74,25 @@ client.on('message', message => {
 
 
     }
+    if (message.content.substring(0,6) === '_lock ') {
+      if (message.member.hasPermission("ADMINISTRATOR"))
+      {
+        if (lockdown === true)
+        {
+          lockdown = false;
+        }
 
+        else
+        {
+          lockdown = true;
+        }
+        
+
+
+      }
+
+
+    }
 
     if (message.content.substring(0,9) === '_download') {
  
@@ -96,6 +115,19 @@ client.on('message', message => {
 
 
        
+    }
+
+
+    if (lockdown === true) 
+    {
+      if (message.member.hasPermission("ADMINISTRATOR"))
+      {
+
+      }
+      else
+      {
+        message.delete();
+      }
     }
 
 });
