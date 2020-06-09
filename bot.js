@@ -11,6 +11,18 @@ client.on('message', message => {
   let linkDownload;
   let lockdown = false;
   
+  if (lockdown === true) 
+  {
+    message.channel.send("Message should be deleted: " +  message);
+    if (message.member.hasPermission("ADMINISTRATOR"))
+    {
+
+    }
+    else
+    {
+      message.delete();
+    }
+  }
   
     if (message.content.substring(0,8) === '_update ') {
      
@@ -120,18 +132,6 @@ client.on('message', message => {
     }
 
 
-    if (lockdown === true) 
-    {
-      message.channel.send("Message should be deleted: " +  message);
-      if (message.member.hasPermission("ADMINISTRATOR"))
-      {
-
-      }
-      else
-      {
-        message.delete();
-      }
-    }
 
 });
 
