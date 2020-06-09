@@ -125,8 +125,8 @@ client.on('message', message => {
             message.channel.send("[!] Please specify a valid integer");
           }
             
-          await message.channel.messages.fetch({ limit: args[0] }).then(msgs => { // Fetches the messages
-            message.channel.bulkDelete(msgs // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+          message.channel.messages.fetch({ limit: args[0] }).then(msgs => { // Fetches the messages
+            message.channel.bulkDelete(msgs
           )});
 
       }
