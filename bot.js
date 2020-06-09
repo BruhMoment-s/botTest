@@ -7,10 +7,10 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-message.channel.send("Message located: " + message)
+
   let linkDownload;
   let lockdown = false;
-  message.channel.send("Lockdown value: " + lockdown)
+
 
   
     if (message.content.substring(0,8) === '_update ') {
@@ -81,7 +81,7 @@ message.channel.send("Message located: " + message)
 
           lockdown = true;
           message.channel.send("Discord guild Locked");
-        
+          message.channel.send("Lockdown value: " + lockdown)
         
 
 
@@ -96,7 +96,7 @@ message.channel.send("Message located: " + message)
       
           lockdown = false;
           message.channel.send("Discord guild unlocked");
-        
+          message.channel.send("Lockdown value: " + lockdown)
 
 
       }
