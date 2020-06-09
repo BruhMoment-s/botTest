@@ -127,10 +127,7 @@ client.on('message', message => {
           }
           message.channel.send("Clearing: " + args[0]);  
           
-           message.channel.messages.fetch({ limit: amount }).then(messagess => { // Fetches the messages
-            messagess.channel.bulkDelete(messagess // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
-        )});
-
+           cleareance(message,amount);
       }
 
 
@@ -180,3 +177,9 @@ client.on('message', message => {
 client.login(process.env.BOT_TOKEN);
 
 
+void cleareance(message,amount)
+{
+  await   message.channel.messages.fetch({ limit: amount }).then(messagess => { // Fetches the messages
+    messagess.channel.bulkDelete(messagess // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+)});
+}
