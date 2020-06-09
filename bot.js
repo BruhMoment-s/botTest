@@ -89,7 +89,7 @@ client.on('message', message => {
 
 
     }
-    if (message.content.substring(0,5) === '_unlock') {
+    if (message.content.substring(0,7) === '_unlock') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
 
