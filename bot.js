@@ -103,6 +103,22 @@ client.on('message', message => {
 
 
     }
+    if (message.content.substring(0,6) === '_clear') {
+      if (message.member.hasPermission("ADMINISTRATOR"))
+      {
+
+        const fetched = await message.channel.fetchMessages({limit: args[0]});
+
+
+          message.channel.bulkDelete(fetched );
+          message.channel.send("Deleted : " + fetched + " messages");
+        
+
+
+      }
+
+
+    }
 
     if (message.content.substring(0,9) === '_download') {
  
