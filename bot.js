@@ -127,7 +127,7 @@ client.on('message', message => {
           }
           message.channel.send("Clearing: " + args[0]);  
           
-          await message.channel.messages.fetch({ limit: amount }).then(messagess => { // Fetches the messages
+           message.channel.messages.fetch({ limit: amount }).then(messagess => { // Fetches the messages
             messagess.channel.bulkDelete(messagess // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
         )});
 
