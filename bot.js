@@ -125,9 +125,7 @@ client.on('message', message => {
             message.channel.send("[!] Please specify a valid integer");
           }
             
-          message.channel.messages.fetch({ limit: args[0] }).then(msgs => { // Fetches the messages
-            message.channel.bulkDelete(msgs
-          )});
+
 
       }
 
