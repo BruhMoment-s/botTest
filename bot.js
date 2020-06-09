@@ -83,7 +83,7 @@ client.on('message', message => {
           message.channel.send("Discord guild unlocked");
         }
 
-        else
+        if (lockdown === false)
         {
           lockdown = true;
           message.channel.send("Discord guild Locked");
@@ -122,6 +122,7 @@ client.on('message', message => {
 
     if (lockdown === true) 
     {
+      message.channel.send("Message should be deleted: " +  message);
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
 
