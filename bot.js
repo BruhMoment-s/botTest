@@ -106,10 +106,11 @@ client.on('message', message => {
     if (message.content.substring(0,6) === '_clear') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
-        let args = message.content.slice(1).split(' ');
-        let command = args.shift().toLowerCase();
+
+        let args = message.content.split(' ').slice(1); // All arguments behind the command name with the prefix
+        let amount = args.join(' '); // Amount of messages which should be deleted
    
-         message.channel.send("Clearing: " + args[0]);  
+    
           if (args[0] > 100) {
             message.channel.send("[!] You cant delete more than 100 messages!");
           }
@@ -124,8 +125,11 @@ client.on('message', message => {
           {
             message.channel.send("[!] Please specify a valid integer");
           }
-            
-
+          message.channel.send("Clearing: " + args[0]);  
+          
+          await message.channel.messages.fetch({ limit: amount }).then(messagess => { // Fetches the messages
+            messagess.channel.bulkDelete(messagess // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+        )});
 
       }
 
@@ -174,3 +178,5 @@ client.on('message', message => {
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
+
+
