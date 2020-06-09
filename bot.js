@@ -106,7 +106,7 @@ client.on('message', message => {
     if (message.content.substring(0,6) === '_clear') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
-        let args = message.content.slice(prefix.length).split(' ');
+        let args = message.content.slice(1).split(' ');
         let command = args.shift().toLowerCase();
        message.channel.send("Clearing: " + args[0]);  
       }
