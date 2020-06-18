@@ -108,9 +108,8 @@ client.on('message', message => {
       {
         let args1 = message.content.substring(7,message.length);
           message.channel.send("Clearing...");
-          channel.bulkDelete(args1)
-          .then(messages => message.channel.send(`Bulk deleted ${args1} messages`))
-  
+          message.channel.bulkDelete(args1)
+     
 
 
       }
