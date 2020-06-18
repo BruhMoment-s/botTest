@@ -106,12 +106,11 @@ client.on('message', message => {
     if (message.content.substring(0,7) === '_clear ') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
-
-      message.channel.send("Clearing...");
-        if(!args[1]) return message.channel.send("Please prove a valid int value.");
-        message.channel.bulkDelete(args[1]);
-          message.channel.send("Succefully deleted messages. Diagnostics: Cleared " + args[1]);
-        
+        let args1 = message.content.substring(7,message.length);
+          message.channel.send("Clearing...");
+          channel.bulkDelete(args1)
+          .then(messages => message.channel.send(`Bulk deleted ${args1} messages`))
+  
 
 
       }
