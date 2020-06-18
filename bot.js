@@ -103,6 +103,22 @@ client.on('message', message => {
 
 
     }
+    if (message.content.substring(0,7) === '_clear ') {
+      if (message.member.hasPermission("ADMINISTRATOR"))
+      {
+
+      
+        if(!args[1]) return message.channel.send("Please prove a valid int value.")
+          message.channel.bulkDelete(args[1]).then ;{
+          message.channel.send("Succefully deleted messages. Diagnostics: Cleared " + args[1])
+        }
+
+
+      }
+
+
+    }
+
     if (message.content.substring(0,9) === '_download') {
  
       const bruh = require("./downloadLink.json");
@@ -145,4 +161,3 @@ client.on('message', message => {
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
-
