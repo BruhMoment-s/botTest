@@ -107,11 +107,11 @@ client.on('message', message => {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
 
-      
-        if(!args[1]) return message.channel.send("Please prove a valid int value.")
-          message.channel.bulkDelete(args[1]).then ;{
-          message.channel.send("Succefully deleted messages. Diagnostics: Cleared " + args[1])
-        }
+      message.channel.send("Clearing...");
+        if(!args[1]) return message.channel.send("Please prove a valid int value.");
+        message.channel.bulkDelete(args[1]);
+          message.channel.send("Succefully deleted messages. Diagnostics: Cleared " + args[1]);
+        
 
 
       }
