@@ -110,7 +110,7 @@ client.on('message', message => {
           message.channel.bulkDelete(args1)
           message.channel.send("Done clearing messages! Diagnostics: Cleared "+ args1 + " messages.");
           setTimeout(function(){ 
-            message.channel.delete();
+            message.delete();
            }, 10000);
 
       }
