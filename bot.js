@@ -69,7 +69,7 @@ client.on('message', message => {
         let contentSub = message.content.substring(6,message.length);
         message.delete();
         linkDownload = contentSub;
-   
+        
 
       }
 
@@ -106,11 +106,12 @@ client.on('message', message => {
     if (message.content.substring(0,7) === '_clear ') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
-        let args1 = message.content.substring(7,message.length);
-          message.channel.send("Clearing...");
+          let args1 = message.content.substring(7,message.length);
           message.channel.bulkDelete(args1)
-     
-
+          message.channel.send("Done clearing messages! Diagnostics: Cleared "+ args1 + " messages.");
+          setTimeout(function(){ 
+            message.channel.delete();
+           }, 10000);
 
       }
 
