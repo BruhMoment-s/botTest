@@ -124,7 +124,7 @@ client.on('message', message => {
   "color": 12390624,
   "timestamp": "2020-07-03T14:14:39.138Z",
   "footer": {
-    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+  "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
     "text": "Xedved help alert"
   },
   "fields": [
