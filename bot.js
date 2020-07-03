@@ -117,7 +117,35 @@ client.on('message', message => {
 
 
     }
-
+    if (message.content.substring(0,5) === '_help'){
+        const embed = {
+  "title": "Xedved help",
+  "description": "Here are known bug fixes to Xedved",
+  "color": 12390624,
+  "timestamp": "2020-07-03T14:14:39.138Z",
+  "footer": {
+    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+    "text": "Xedved help alert"
+  },
+  "fields": [
+    {
+      "name": "I cant run Xedved. What do I do?",
+      "value": "Try disabling your windows anti virus. And then reinstall Xedved. If that does not work please contact staff"
+    },
+    {
+      "name": "How do I put scripts in Xedved?",
+      "value": "Just put the file in the scripts folder."
+    },
+    {
+      "name": "How do I put scripts in Xedved scripthub?",
+      "value": "Put the file in the Scripthub folder. The contents of the file should look something like this\n```First line is the Title\nSecond line is the description\nThird line and bellow is the code```"
+    }
+  ]
+};
+channel.send({ embed });
+        
+        message.delete();
+    }
     if (message.content.substring(0,9) === '_download') {
  
       const bruh = require("./downloadLink.json");
