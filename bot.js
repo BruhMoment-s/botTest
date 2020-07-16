@@ -139,6 +139,10 @@ client.on('message', message => {
     {
       "name": "How do I put scripts in Xedved scripthub?",
       "value": "Put the file in the Scripthub folder. The contents of the file should look something like this\n```First line is the Title\nSecond line is the description\nThird line and bellow is the code```"
+    },
+    {
+      "name": "_ _",
+      "value": "If you cant open Xedved at all with windows antivirus off please use internal."
     }
   ]
 };
