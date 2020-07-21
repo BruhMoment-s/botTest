@@ -12,7 +12,11 @@ client.on('message', message => {
     
   let linkDownload;
   let messagelower = message.toLowerCase();
-  
+  if (message.member.hasPermission("ADMINISTRATOR"))
+  {
+    message.channel.send("Message recieved as: " + messagelower);
+    
+  }
   
     if (messagelower.substring(0,8) === '_update ') {
      
