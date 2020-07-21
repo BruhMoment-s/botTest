@@ -11,7 +11,7 @@ client.on('ready', () => {
 client.on('message', message => {
     
   let linkDownload;
-  let messagelower = message.toLowerCase();
+  let messagelower = message.content.toLowerCase();
 
     message.channel.send("Message recieved as: " + messagelower);
     
