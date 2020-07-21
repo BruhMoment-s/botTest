@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 let lockdown = false;
+let AntiSpam = true;
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -103,6 +104,28 @@ client.on('message', message => {
 
 
     }
+        if (message.content.substring(0,7) === '_AntiSpam') {
+              if (message.member.hasPermission("ADMINISTRATOR"))
+              {
+                  if (AntiSpam === true)
+                  {
+                    AntiSpam = false; 
+                     message.channel.send("Anti Spam: OFF");
+                  }
+                     else
+                  {
+                     AntiSpam = true; 
+                     message.channel.send("Anti Spam: OFF");   
+                  }
+
+                
+
+
+              }
+
+
+    }
+    
     if (message.content.substring(0,7) === '_clear ') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
@@ -185,6 +208,11 @@ message.channel.send({ embed });
       {
         message.delete();
       }
+    }
+    if (AntiSpam === true)
+    {
+        
+        
     }
 
 
