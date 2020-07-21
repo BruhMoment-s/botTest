@@ -21,7 +21,7 @@ client.on('message', message => {
 
   if (AntiSpam === true)
     {
-      if (message.member.hasPermission("ADMINISTRATOR") === false)
+      if (message.member.hasPermission("ADMINISTRATOR") === true)
       {
           if(message.author.bot === false) 
 
