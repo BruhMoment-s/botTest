@@ -2,16 +2,18 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 let lockdown = false;
 let AntiSpam = true;
+
+
+client.on('ready', () => {
+    console.log('I am ready!');
+
+});
 const usersMap = new Map();
 const LIMIT = 5;
 const TIME = 12500;
 const DIFF = 3500;
 const TIMEOUT = "PERM";
 
-client.on('ready', () => {
-    console.log('I am ready!');
-
-});
 
 client.on('message', message => {
     
@@ -72,6 +74,7 @@ client.on('message', message => {
                 timer: fn
               });
             }
+            
           }
 
         }
