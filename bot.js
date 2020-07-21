@@ -13,8 +13,7 @@ client.on('message', message => {
   let linkDownload;
   let messagelower = message.content.toLowerCase();
 
-    message.channel.send("Message recieved as: " + messagelower);
-    
+
   
   
     if (messagelower.substring(0,8) === '_update ') {
