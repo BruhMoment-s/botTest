@@ -222,7 +222,7 @@ message.channel.send({ embed });
               }
               else {
                 ++msgCount;
-                if (parseInt(msgCount) === LIMIT / 2)
+                if (parseInt(msgCount) === 2)
                 {
                   message.reply("[🟢]  Please do not spam.");
                 }
