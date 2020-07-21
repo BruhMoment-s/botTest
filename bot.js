@@ -27,7 +27,7 @@ client.on('message', message => {
           if(message.author.bot === false) 
 
                 {
-                  message.channel.send("Message recieved (If you are in xedved discord Ignore this)");
+            
             if(usersMap.has(message.author.id)) {
               const userData = usersMap.get(message.author.id);
               const { lastMessage, timer } = userData;
