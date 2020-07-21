@@ -3,8 +3,8 @@ const client = new Discord.Client();
 let lockdown = false;
 let AntiSpam = true;
 const usersMap = new Map();
-const LIMIT = 10;
-const TIME = 15000;
+const LIMIT = 5;
+const TIME = 7500;
 const DIFF = 3500;
 const TIMEOUT = "PERM";
 
