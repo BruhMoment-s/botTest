@@ -222,25 +222,16 @@ message.channel.send({ embed });
               }
               else {
                 ++msgCount;
-                if (parseInt(msgCount) === 2)
+                if (parseInt(msgCount) === 4)
                 {
                   message.reply("[🟢]  Please do not spam.");
                 }
                 if(parseInt(msgCount) === LIMIT) {
+                    message.reply("[!]  You have been muted.");
                   const role = message.guild.roles.cache.get('735179522122711110');
                   message.member.roles.add(role);
-                  message.reply("[!]  You have been muted.");
-                  if (TIMEOUT === "PERM")
-                  {
-
-                  }
-                  else
-                  {
-                      setTimeout(() => {
-                        message.member.roles.remove(role);
-                        message.reply("[!]  You have been unmuted.");
-                      }, TIMEOUT);
-                    }
+                
+               
                 } else {
                   userData.msgCount = msgCount;
                   usersMap.set(message.author.id, userData);
