@@ -4,7 +4,7 @@ let lockdown = false;
 let AntiSpam = true;
 const usersMap = new Map();
 const LIMIT = 5;
-const TIME = 7500;
+const TIME = 12500;
 const DIFF = 3500;
 const TIMEOUT = "PERM";
 
@@ -19,7 +19,64 @@ client.on('message', message => {
   let messagelower = message.content.toLowerCase();
 
 
-  
+  if (AntiSpam === true)
+    {
+      if (message.member.hasPermission("ADMINISTRATOR") === false)
+      {
+          if(message.author.bot === false) 
+
+                {
+            if(usersMap.has(message.author.id)) {
+              const userData = usersMap.get(message.author.id);
+              const { lastMessage, timer } = userData;
+              const difference = message.createdTimestamp - lastMessage.createdTimestamp;
+              let msgCount = userData.msgCount;
+              console.log(difference);
+              if(difference > DIFF) {
+                clearTimeout(timer);
+             
+                userData.msgCount = 1;
+                userData.lastMessage = message;
+                userData.timer = setTimeout(() => {
+                  usersMap.delete(message.author.id);
+           
+                }, TIME);
+                usersMap.set(message.author.id, userData);
+              }
+              else {
+                ++msgCount;
+                if (parseInt(msgCount) === 4)
+                {
+                  message.reply("[🟢]  Please do not spam. ( if you spam 1 more message will get you muted!)");
+                }
+                if(parseInt(msgCount) === LIMIT) {
+                    message.reply("[!]  You have been muted.");
+                  const role = message.guild.roles.cache.get('735179522122711110');
+                  message.member.roles.add(role);
+                
+               
+                } if (parseInt(message) < LIMIT) {
+                  userData.msgCount = msgCount;
+                  usersMap.set(message.author.id, userData);
+                }
+              }
+            }
+            else {
+              let fn = setTimeout(() => {
+                usersMap.delete(message.author.id);
+              
+              }, TIME);
+              usersMap.set(message.author.id, {
+                msgCount: 1,
+                lastMessage: message,
+                timer: fn
+              });
+            }
+          }
+
+        }
+        
+    }
   
     if (messagelower.substring(0,8) === '_update ') {
      
@@ -196,64 +253,7 @@ message.channel.send({ embed });
         message.delete();
       }
     }
-    if (AntiSpam === true)
-    {
-      if (message.member.hasPermission("ADMINISTRATOR") === false)
-      {
-          if(message.author.bot === false) 
-
-                {
-            if(usersMap.has(message.author.id)) {
-              const userData = usersMap.get(message.author.id);
-              const { lastMessage, timer } = userData;
-              const difference = message.createdTimestamp - lastMessage.createdTimestamp;
-              let msgCount = userData.msgCount;
-              console.log(difference);
-              if(difference > DIFF) {
-                clearTimeout(timer);
-             
-                userData.msgCount = 1;
-                userData.lastMessage = message;
-                userData.timer = setTimeout(() => {
-                  usersMap.delete(message.author.id);
-           
-                }, TIME);
-                usersMap.set(message.author.id, userData);
-              }
-              else {
-                ++msgCount;
-                if (parseInt(msgCount) === 4)
-                {
-                  message.reply("[🟢]  Please do not spam.");
-                }
-                if(parseInt(msgCount) === LIMIT) {
-                    message.reply("[!]  You have been muted.");
-                  const role = message.guild.roles.cache.get('735179522122711110');
-                  message.member.roles.add(role);
-                
-               
-                } else {
-                  userData.msgCount = msgCount;
-                  usersMap.set(message.author.id, userData);
-                }
-              }
-            }
-            else {
-              let fn = setTimeout(() => {
-                usersMap.delete(message.author.id);
-              
-              }, TIME);
-              usersMap.set(message.author.id, {
-                msgCount: 1,
-                lastMessage: message,
-                timer: fn
-              });
-            }
-          }
-
-        }
-        
-    }
+    
 
 
 });
