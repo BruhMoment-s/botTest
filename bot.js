@@ -107,27 +107,7 @@ client.on('message', message => {
 
 
     }
-        if (messagelower.substring(0,7) === '_AntiSpam') {
-              if (message.member.hasPermission("ADMINISTRATOR"))
-              {
-                  if (AntiSpam === true)
-                  {
-                    AntiSpam = false; 
-                     message.channel.send("Anti Spam: OFF");
-                  }
-                     else
-                  {
-                     AntiSpam = true; 
-                     message.channel.send("Anti Spam: OFF");   
-                  }
-
-                
-
-
-              }
-
-
-    }
+      
     
     if (messagelower.substring(0,7) === '_clear ') {
       if (message.member.hasPermission("ADMINISTRATOR"))
