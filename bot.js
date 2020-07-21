@@ -9,12 +9,12 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-
+    
   let linkDownload;
-
-
+  let messagelower = message.toLowerCase();
   
-    if (message.content.substring(0,8) === '_update ') {
+  
+    if (messagelower.substring(0,8) === '_update ') {
      
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
@@ -63,7 +63,7 @@ client.on('message', message => {
      //   message.reply({embed});
     }
    
-    if (message.content.substring(0,6) === '_link ') {
+    if (messagelower.substring(0,6) === '_link ') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
         
@@ -76,7 +76,7 @@ client.on('message', message => {
 
 
     }
-    if (message.content.substring(0,5) === '_lock') {
+    if (messagelower.substring(0,5) === '_lock') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
 
@@ -90,7 +90,7 @@ client.on('message', message => {
 
 
     }
-    if (message.content.substring(0,7) === '_unlock') {
+    if (messagelower.substring(0,7) === '_unlock') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
 
@@ -104,7 +104,7 @@ client.on('message', message => {
 
 
     }
-        if (message.content.substring(0,7) === '_AntiSpam') {
+        if (messagelower.substring(0,7) === '_AntiSpam') {
               if (message.member.hasPermission("ADMINISTRATOR"))
               {
                   if (AntiSpam === true)
@@ -126,7 +126,7 @@ client.on('message', message => {
 
     }
     
-    if (message.content.substring(0,7) === '_clear ') {
+    if (messagelower.substring(0,7) === '_clear ') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
           let args1 = message.content.substring(7,message.length);
@@ -140,7 +140,7 @@ client.on('message', message => {
 
 
     }
-    if (message.content.substring(0,5) === '_help'){
+    if (messagelower.substring(0,5) === '_help'){
         const embed = {
   "title": "Xedved help",
   "description": "Here are known bug fixes to Xedved",
@@ -173,7 +173,7 @@ message.channel.send({ embed });
         
         message.delete();
     }
-    if (message.content.substring(0,9) === '_download') {
+    if (messagelower.substring(0,9) === '_download') {
  
       const bruh = require("./downloadLink.json");
       
