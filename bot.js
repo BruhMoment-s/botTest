@@ -2,6 +2,11 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 let lockdown = false;
 let AntiSpam = true;
+const usersMap = new Map();
+const LIMIT = 10;
+const TIME = 15000;
+const DIFF = 3500;
+const TIMEOUT = "PERM";
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -193,7 +198,69 @@ message.channel.send({ embed });
     }
     if (AntiSpam === true)
     {
-        
+      if (message.member.hasPermission("ADMINISTRATOR") === false)
+      {
+          if(message.author.bot === false) 
+
+                {
+            if(usersMap.has(message.author.id)) {
+              const userData = usersMap.get(message.author.id);
+              const { lastMessage, timer } = userData;
+              const difference = message.createdTimestamp - lastMessage.createdTimestamp;
+              let msgCount = userData.msgCount;
+              console.log(difference);
+              if(difference > DIFF) {
+                clearTimeout(timer);
+             
+                userData.msgCount = 1;
+                userData.lastMessage = message;
+                userData.timer = setTimeout(() => {
+                  usersMap.delete(message.author.id);
+           
+                }, TIME);
+                usersMap.set(message.author.id, userData);
+              }
+              else {
+                ++msgCount;
+                if (parseInt(msgCount) === LIMIT / 2)
+                {
+                  message.reply("[🟢]  Please do not spam.");
+                }
+                if(parseInt(msgCount) === LIMIT) {
+                  const role = message.guild.roles.cache.get('735179522122711110');
+                  message.member.roles.add(role);
+                  message.reply("[!]  You have been muted.");
+                  if (TIMEOUT === "PERM")
+                  {
+
+                  }
+                  else
+                  {
+                      setTimeout(() => {
+                        message.member.roles.remove(role);
+                        message.reply("[!]  You have been unmuted.");
+                      }, TIMEOUT);
+                    }
+                } else {
+                  userData.msgCount = msgCount;
+                  usersMap.set(message.author.id, userData);
+                }
+              }
+            }
+            else {
+              let fn = setTimeout(() => {
+                usersMap.delete(message.author.id);
+              
+              }, TIME);
+              usersMap.set(message.author.id, {
+                msgCount: 1,
+                lastMessage: message,
+                timer: fn
+              });
+            }
+          }
+
+        }
         
     }
 
