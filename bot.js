@@ -174,78 +174,81 @@ client.on('message', message => {
 
     }
       
- if (messagelower.substring(0,6) === '_warn ') {
-  if (message.member.hasPermission("ADMINISTRATOR"))
-{
-    let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
-            let args1 = message.content.substring(6,message.length);
-    let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args1[0])
-    if(!wUser) return message.reply("Operation failed. Reason: Member not found.");
-    if (wUser.hasPermission("ADMINISTRATOR")) return message.reply("Operation failed. Reason: User is a admin.");
+    if (messagelower.substring(0,6) === '_warn ') {
+      if (message.member.hasPermission("ADMINISTRATOR"))
+    {
+        let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
+                let args1 = message.content.substring(6,message.length);
+        let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args1[0])
+        if(!wUser) return message.reply("Operation failed. Reason: Member not found.");
+        if (wUser.hasPermission("ADMINISTRATOR")) return message.reply("Operation failed. Reason: User is a admin.");
 
-    if (!warns[wUser.id]) warns[wUser.id] = {
-    warns: 0
-    };
+        if (!warns[wUser.id]) warns[wUser.id] = {
+        warns: 0
+        };
 
-    warns[wUser.id].warns++;
+        warns[wUser.id].warns++;
+        fs.writeFile("./warnings.json", JSON.stringify(wanrs), (err) => {
+          if (err) console.log(err)
+          });
 
-    const warnEmbed = {
-      "title": "Warning",
-      "description": wUser.tag + " has been warned (" + warns[wUser.id].warns +"/3)",
-      "color": 11413984,
-    "timestamp": new Date(),
-      "footer": {
-        "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
-        "text": "Xedved warning alert"
-      }
-    };
-    channel.send({ warnEmbed });
+        const warnEmbed = {
+          "title": "Warning",
+          "description": wUser.tag + " has been warned (" + warns[wUser.id].warns +"/3)",
+          "color": 11413984,
+        "timestamp": new Date(),
+          "footer": {
+            "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
+            "text": "Xedved warning alert"
+          }
+        };
+        channel.send({ warnEmbed });
 
-    const thirdembed = {
-      "title": "Warnings.",
-      "description": "It seems like you have been kicked from Xedved discord.",
-      "color": 11413984,
-      "timestamp": "2020-08-04T08:27:14.837Z",
-      "footer": {
-        "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
-        "text": "Xedved warning alert"
-      },
-      "fields": [
+        const thirdembed = {
+          "title": "Warnings.",
+          "description": "It seems like you have been kicked from Xedved discord.",
+          "color": 11413984,
+          "timestamp": "2020-08-04T08:27:14.837Z",
+          "footer": {
+            "icon_url": "https://media.discordapp.net/attachments/703857786496483359/704681488402219038/xedved_thing33.png",
+            "text": "Xedved warning alert"
+          },
+          "fields": [
+            {
+              "name": "_ _",
+              "value": "You have broken the rules 3 times."
+            },
+            {
+              "name": "_ _",
+              "value": "Next time you will be warned will be a ban."
+            },
+            {
+              "name": "_ _",
+              "value": "We do not tolerate people who break our rules."
+            },
+            {
+              "name": "_ _",
+              "value": "If you wish to rejoin [click here](https://discord.gg/37TysQr)"
+            }
+          ]
+        };
+
+
+        if(warns[wUser.id].warns == 3)
         {
-          "name": "_ _",
-          "value": "You have broken the rules 3 times."
-        },
-        {
-          "name": "_ _",
-          "value": "Next time you will be warned will be a ban."
-        },
-        {
-          "name": "_ _",
-          "value": "We do not tolerate people who break our rules."
-        },
-        {
-          "name": "_ _",
-          "value": "If you wish to rejoin [click here](https://discord.gg/37TysQr)"
+        wUser.send({ thirdembed });
+        wUser.kick();
+
         }
-      ]
-    };
+        if(warns[wUser.id].warns == 4)
+        {
+        wUser.send({ thirdembed });
+        wUser.ban();
+        }
 
 
-    if(warns[wUser.id].warns == 3)
-    {
-    wUser.send({ thirdembed });
-    wUser.kick();
-
-    }
-    if(warns[wUser.id].warns == 4)
-    {
-    wUser.send({ thirdembed });
-    wUser.ban();
-    }
-
-
-    }
-  }
+        }
+      }
     if (messagelower.substring(0,7) === '_clear ') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
