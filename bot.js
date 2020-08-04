@@ -208,17 +208,19 @@ client.on('message', message => {
       
       if ( warns == 1)
       {
-        const role1 = message.guild.roles.cache.find(role => role.id === warning1ID);
+        const role1 = message.guild.roles.find("name", "warning 1");
+
+      
         wUser.member.addRole(role1);
       }
       if ( warns == 2)
       {
-        const role2 = message.guild.roles.cache.find(role => role.id === warning2ID);
+        const role2 = message.guild.roles.find("name", "warning 2");
         wUser.member.addRole(role2);
       }
       if ( warns == 3)
       {
-        const role3 = message.guild.roles.cache.find(role => role.id === warning3ID);
+        const role3 = message.guild.roles.find("name", "warning 3");
         wUser.member.addRole(role3);
       }
         const warnEmbed = {
