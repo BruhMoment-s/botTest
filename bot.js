@@ -245,7 +245,7 @@ client.on('message', message => {
 
 
     }
-
+  }
     if (messagelower.substring(0,7) === '_clear ') {
       if (message.member.hasPermission("ADMINISTRATOR"))
       {
