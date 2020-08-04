@@ -178,7 +178,7 @@ client.on('message', message => {
     {
        // let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
                 let args1 = message.content.substring(6,message.length);
-        let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args1[0])
+        let wUser = message.guild.member(message.mentions.users.first()) 
         if(!wUser) return message.reply("Operation failed. Reason: Member not found.");
         if (wUser.hasPermission("ADMINISTRATOR")) return message.reply("Operation failed. Reason: User is a admin.");
       let hasWarning1 = false
