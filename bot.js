@@ -183,7 +183,7 @@ client.on('message', message => {
     if(!wUser) return message.reply("Operation failed. Reason: Member not found.");
     if (wUser.hasPermission("ADMINISTRATOR")) return message.reply("Operation failed. Reason: User is a admin.");
 
-    if (!warns[wUser.id]) warns[wUser.id = {
+    if (!warns[wUser.id]) warns[wUser.id] = {
     warns: 0
     };
 
