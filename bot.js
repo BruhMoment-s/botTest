@@ -177,24 +177,54 @@ client.on('message', message => {
     if (messagelower.substring(0,6) === '_warn ') {
       if (message.member.hasPermission("ADMINISTRATOR"))
     {
-        let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
+       // let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
                 let args1 = message.content.substring(6,message.length);
         let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args1[0])
         if(!wUser) return message.reply("Operation failed. Reason: Member not found.");
         if (wUser.hasPermission("ADMINISTRATOR")) return message.reply("Operation failed. Reason: User is a admin.");
-
-        if (!warns[wUser.id]) warns[wUser.id] = {
-        warns: 0
-        };
-
-        warns[wUser.id].warns++;
-        fs.writeFile("./warnings.json", JSON.stringify(wanrs), (err) => {
-          if (err) console.log(err)
-          });
-
+      let hasWarning1 = false
+      let hasWarning2 = false
+      let hasWarning3 = false
+      let warning1ID = 740141690316259369
+      let warning2ID = 740141725095559198
+      let warning3ID = 740141739863572500
+      let warns = 0
+      if (wUser.roles.has(warning1ID) )
+      {
+        hasWarning1 = true
+        warns = 1
+      }
+      if (wUser.roles.has(warning2ID) )
+      {
+        hasWarning2 = true
+        warns = 2
+      }
+      if (wUser.roles.has(warning3ID) )
+      {
+        hasWarning3 = true
+        warns = 3
+      }
+   
+      warns++;
+      
+      if ( warns == 1)
+      {
+        const role1 = myGuild.roles.cache.find(role => role.id === warning1ID);
+        wUser.member.addRole(role1);
+      }
+      if ( warns == 2)
+      {
+        const role2 = myGuild.roles.cache.find(role => role.id === warning2ID);
+        wUser.member.addRole(role2);
+      }
+      if ( warns == 3)
+      {
+        const role3 = myGuild.roles.cache.find(role => role.id === warning3ID);
+        wUser.member.addRole(role3);
+      }
         const warnEmbed = {
           "title": "Warning",
-          "description": wUser.tag + " has been warned (" + warns[wUser.id].warns +"/3)",
+          "description": wUser.tag + " has been warned (" + warns +"/3)",
           "color": 11413984,
         "timestamp": new Date(),
           "footer": {
@@ -232,15 +262,18 @@ client.on('message', message => {
             }
           ]
         };
+        if (warns == 1)
+        {
 
+        }
 
-        if(warns[wUser.id].warns == 3)
+        if(warns == 3)
         {
         wUser.send({ thirdembed });
         wUser.kick();
 
         }
-        if(warns[wUser.id].warns == 4)
+        if(warns == 4)
         {
         wUser.send({ thirdembed });
         wUser.ban();
